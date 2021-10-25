@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../../src/asset/images/logo-bg.png";
-import classes from "../../src/asset/styles/Nav.module.css";
+import logo from "../asset/images/logo-bg.png";
+import classes from "../asset/styles/Nav.module.css";
 import Account from "./Account";
 
 export default function Nav() {

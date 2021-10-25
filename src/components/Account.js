@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../../src/asset/styles/Account.module.css";
+import classes from "../asset/styles/Account.module.css";
 
 export default function Account() {
     return (
