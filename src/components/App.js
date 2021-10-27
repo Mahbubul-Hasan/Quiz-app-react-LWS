@@ -9,7 +9,6 @@ import Result from "./pages/Result";
 import Signup from "./pages/Signup";
 
 function App() {
-    console.log(process.env);
     return (
         <Router>
             <AuthProvider>
