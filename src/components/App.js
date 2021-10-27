@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "../asset/styles/App.css";
+import { AuthProvider } from "../contexts/AuthContext";
 import Layout from "./Layout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -8,17 +9,20 @@ import Result from "./pages/Result";
 import Signup from "./pages/Signup";
 
 function App() {
+    console.log(process.env);
     return (
         <Router>
-            <Layout>
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/signup" component={Signup} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/quiz" component={Quiz} />
-                    <Route path="/result" component={Result} />
-                </Switch>
-            </Layout>
+            <AuthProvider>
+                <Layout>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/signup" component={Signup} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/quiz" component={Quiz} />
+                        <Route path="/result" component={Result} />
+                    </Switch>
+                </Layout>
+            </AuthProvider>
         </Router>
     );
 }
