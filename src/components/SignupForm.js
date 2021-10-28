@@ -12,7 +12,7 @@ export default function SignupForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [agree, setAgree] = useState();
+    // const [agree, setAgree] = useState();
     const [error, setError] = useState();
     const [loading, setLoading] = useState();
 
@@ -22,7 +22,7 @@ export default function SignupForm() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        if (password != confirmPassword) {
+        if (password !== confirmPassword) {
             return setError("Password doesn't match");
         }
 
@@ -31,10 +31,9 @@ export default function SignupForm() {
             setLoading(true);
             await signup(email, password, username);
             history.push("/");
-        } catch (error) {
+        } catch (exception) {
             setLoading(false);
-            setError(error);
-            setError("Faild to create account");
+            setError("Failed to create account");
         }
     }
 

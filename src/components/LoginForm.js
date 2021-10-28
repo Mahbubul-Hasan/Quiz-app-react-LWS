@@ -23,7 +23,7 @@ export default function LoginForm() {
             setError("");
             await login(email, password);
             history.push("/");
-        } catch (error) {
+        } catch (exception) {
             setLoading(false);
             setError("Failed to login!");
         }
@@ -42,7 +42,7 @@ export default function LoginForm() {
             {error && <p className="error">{error}</p>}
 
             <div className="info">
-                Don't have an account? <Link to="/signup">Signup</Link> instead.
+                Do not have an account? <Link to="/signup">Signup</Link> instead.
             </div>
         </Form>
     );
