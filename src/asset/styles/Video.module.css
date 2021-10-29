@@ -22,7 +22,9 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
 }
-
+.video .title {
+    height: 60px;
+}
 .video img {
     width: 100%;
     object-fit: cover;
