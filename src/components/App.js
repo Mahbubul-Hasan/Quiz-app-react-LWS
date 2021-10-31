@@ -18,8 +18,8 @@ function App() {
                     <Switch>
                         <Route exact path="/" component={Home} />
 
-                        <PrivateRoute path="/quiz" component={Quiz} />
-                        <PrivateRoute path="/result" component={Result} />
+                        <PrivateRoute path="/quiz/:videoID" component={Quiz} />
+                        <PrivateRoute path="/result/:videoID" component={Result} />
 
                         <PublicRoute path="/signup" component={Signup} />
                         <PublicRoute path="/login" component={Login} />

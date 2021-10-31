@@ -13,7 +13,12 @@ export default function useVideosList(pagination) {
 
             const videosRef = ref(db, "videos");
 
-            const videoQuery = query(videosRef, orderByKey(), startAt(`${pagination}`), limitToFirst(15));
+            const videoQuery = query(
+                videosRef,
+                orderByKey(),
+                startAt(`${pagination}`),
+                limitToFirst(15)
+            );
 
             try {
                 setLoading(true);
@@ -24,7 +29,10 @@ export default function useVideosList(pagination) {
                 setLoading(false);
 
                 if (snapshot.exists()) {
-                    setVideos((preVideos) => [...preVideos, ...Object.values(snapshot.val())]);
+                    setVideos((previousVideos) => [
+                        ...previousVideos,
+                        ...Object.values(snapshot.val()),
+                    ]);
                 } else {
                     setHasMore(false);
                     console.log("No data available");
