@@ -9,9 +9,7 @@ export default function useQuestions(videoID) {
     useEffect(() => {
         async function fetchQuestions() {
             const db = getDatabase();
-
             const quizRef = ref(db, `quiz/${videoID}/questions`);
-
             const quizQuery = query(quizRef, orderByKey());
 
             try {
@@ -23,10 +21,13 @@ export default function useQuestions(videoID) {
                 setLoading(false);
 
                 if (snapshot.exists()) {
-                    setQuestions((prevQuestions) => [
-                        ...prevQuestions,
-                        ...Object.values(snapshot.val()),
-                    ]);
+                    setQuestions(snapshot.val());
+
+                    // Alternative
+                    // setQuestions((prevQuestions) => [
+                    //     ...prevQuestions,
+                    //     ...Object.values(snapshot.val()),
+                    // ]);
                 } else {
                     console.log("No data available");
                 }

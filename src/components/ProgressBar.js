@@ -14,12 +14,11 @@ export default function ProgressBar({ next, prev, submit, percentage }) {
                     <div className={classes.progress} style={{ width: `${percentage}%` }} />
                 </div>
             </div>
-            {/* <Link to="/result"> */}
+
             <Button className={classes.next} onClick={percentage === 100 ? submit : next}>
-                {percentage === 100 ? <span>Submit</span> : <span>Next Question</span>}
+                <span>{percentage === 100 ? "Submit Quiz" : "Next Question"}</span>
                 <span className="material-icons-outlined"> arrow_forward </span>
             </Button>
-            {/* </Link> */}
         </div>
     );
 }
