@@ -105,7 +105,7 @@ export default function Quiz() {
                         submit={submit}
                         percentage={percentage}
                     />
-                    <MiniPlayer />{" "}
+                    <MiniPlayer videoID={videoID} title={qna[currentQuestion].title} />
                 </>
             ) : (
                 <p className="error">Question not found</p>
