@@ -18,7 +18,13 @@ export default function Videos() {
                     className={classes.videos}
                 >
                     {videos.map((video) => (
-                        <Link to={`/quiz/${video.youtubeID}`} key={video.youtubeID}>
+                        <Link
+                            to={{
+                                pathname: `/quiz/${video.youtubeID}`,
+                                state: { videoTitle: video.title },
+                            }}
+                            key={video.youtubeID}
+                        >
                             <Video video={video} />
                         </Link>
                     ))}

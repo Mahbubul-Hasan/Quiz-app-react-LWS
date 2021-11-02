@@ -40,6 +40,8 @@ export default function Quiz() {
     const { currentUser } = useAuth();
 
     const history = useHistory();
+    const { location } = history;
+    const { videoTitle } = location.state;
 
     useEffect(() => {
         dispatch({
@@ -105,7 +107,7 @@ export default function Quiz() {
                         submit={submit}
                         percentage={percentage}
                     />
-                    <MiniPlayer videoID={videoID} title={qna[currentQuestion].title} />
+                    <MiniPlayer videoID={videoID} title={videoTitle} />
                 </>
             ) : (
                 <p className="error">Question not found</p>
